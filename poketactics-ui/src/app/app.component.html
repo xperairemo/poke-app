@@ -1,0 +1,57 @@
+<div class="container-fluid p-0">
+  <app-header></app-header>
+
+  <div class="row g-0">
+    <div class="col-md-2 bg-dark text-white vh-100 shadow d-none d-md-block">
+      <app-sidebar></app-sidebar>
+    </div>
+
+    <div class="col-12 col-md-10 p-4 bg-light">
+      
+      <div class="card mb-4 border-danger shadow-sm">
+        <div class="card-body">
+          <app-rival (rivalEncontrado)="actualizarRival($event)"></app-rival>
+        </div>
+      </div>
+
+      <div class="analysis-section mb-4">
+        
+        <div class="alert alert-info shadow-sm text-center py-4" *ngIf="cargandoAnalisis">
+          <div class="spinner-border text-success mb-2" role="status">
+            <span class="visually-hidden">Cargando...</span>
+          </div>
+          <div class="fw-bold text-uppercase small" style="letter-spacing: 1px;">
+            Analizando datos tácticos...
+          </div>
+        </div>
+
+        <div class="alert alert-info shadow-sm border-start border-4 border-info" 
+             *ngIf="consejos.length > 0 && !cargandoAnalisis">
+          <h5 class="alert-heading text-capitalize">
+            <i class="bi bi-cpu-fill"></i> 
+            Análisis: {{ pokemonAnalizado }} vs {{ rival?.name }}
+          </h5>
+          <ul class="mb-0">
+            <li *ngFor="let c of consejos">{{ c }}</li>
+          </ul>
+        </div>
+
+        <div class="alert alert-secondary text-center fw-bold shadow-sm" 
+             *ngIf="consejos.length === 0 && !cargandoAnalisis">
+          <i class="bi bi-info-circle"></i> 
+          {{ rival ? 'Pulsa "Analizar" en un Pokémon de tu equipo' : 'Busca un rival para empezar el análisis' }}
+        </div>
+      </div>
+
+      <div class="card border-primary shadow-sm">
+        <div class="card-body">
+          <app-team 
+            [pokemonActivo]="pokemonAnalizado" 
+            (analizarPokemon)="analizarCombate($event)">
+          </app-team>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

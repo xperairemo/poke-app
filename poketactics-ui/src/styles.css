@@ -1,0 +1,214 @@
+/* Colores de Tipos Pokémon */
+.type-grass { background-color: #7AC74C; color: white; }
+.type-fire { background-color: #EE8130; color: white; }
+.type-water { background-color: #6390F0; color: white; }
+.type-bug { background-color: #A6B91A; color: white; }
+.type-normal { background-color: #A8A77A; color: white; }
+.type-poison { background-color: #A33EA1; color: white; }
+.type-electric { background-color: #F7D02C; color: black; }
+.type-ground { background-color: #E2BF65; color: black; }
+.type-fairy { background-color: #D685AD; color: white; }
+.type-psychic { background-color: #F95587; color: white; }
+.type-fighting { background-color: #C22E28; color: white; }
+.type-rock { background-color: #B6A136; color: white; }
+.type-ghost { background-color: #735797; color: white; }
+.type-ice { background-color: #96D9D6; color: black; }
+.type-dragon { background-color: #6F35FC; color: white; }
+.type-steel { background-color: #B7B7CE; color: black; }
+.type-dark { background-color: #705746; color: white; }
+.type-flying { background-color: #A98FF3; color: white; }
+
+.type-badge {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* ==========================================================================
+   1. BASE & TIPOGRAFÍA (Project Mew: Laboratorio)
+   ========================================================================== */
+body {
+  background-color: #121417 !important; /* Gris neutro oscuro */
+  color: #e8ecef !important;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  margin: 0;
+}
+
+/* Fondo del área principal */
+.bg-light {
+  background-color: #121417 !important;
+}
+
+/* Textos secundarios con tono azulado/pizarra */
+.text-muted, 
+.card-body p.small, 
+.text-secondary {
+  color: #94a3b8 !important; 
+}
+
+/* ==========================================================================
+   2. ESTRUCTURA (Sidebar & Header)
+   ========================================================================== */
+.bg-dark {
+  background-color: #1a1d23 !important; /* Pizarra más profundo */
+}
+
+.nav-link {
+  color: #94a3b8 !important;
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #2ecc71 !important; /* Verde esmeralda al pasar el ratón */
+}
+
+.nav-link.active {
+  color: #fff !important;
+  background-color: #2ecc71 !important; /* Color principal Mew */
+  border-radius: 8px;
+}
+
+/* Iconos */
+.nav-link i {
+  color: #ffffff !important;
+}
+
+/* ==========================================================================
+   3. TARJETAS (Estilo Investigación)
+   ========================================================================== */
+.card {
+  background-color: #1b1f24 !important; /* Gris pizarra */
+  border: 1px solid #2d333b !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  color: #ffffff !important;
+}
+
+.card:hover {
+  border-color: #2ecc71 !important; /* Resalte en verde */
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+/* Slots vacíos */
+.border-dashed {
+  border: 2px dashed #3d444d !important;
+  background-color: #161a1e !important;
+}
+
+/* ==========================================================================
+   4. FORMULARIOS & BOTONES
+   ========================================================================== */
+.form-control, .form-select {
+  background-color: #0d1117 !important;
+  border: 1px solid #30363d !important;
+  color: #ffffff !important;
+  padding: 0.6rem !important;
+}
+
+.form-control::placeholder {
+  color: #484f58 !important;
+}
+
+.form-control:focus {
+  background-color: #0d1117 !important;
+  border-color: #2ecc71 !important;
+  color: #fff !important;
+  box-shadow: 0 0 0 0.25rem rgba(46, 204, 113, 0.15);
+}
+
+/* Botones principales (Buscar / Analizar) */
+.btn-primary, .btn-danger {
+  background-color: #2ecc71 !important;
+  border-color: #2ecc71 !important;
+  color: #0d1117 !important;
+  font-weight: 600 !important;
+}
+
+.btn-primary:hover, .btn-danger:hover {
+  background-color: #27ae60 !important;
+  border-color: #27ae60 !important;
+}
+
+/* ==========================================================================
+   5. RECOMENDACIONES TÁCTICAS (Estilo Teal/Ciencia)
+   ========================================================================== */
+.alert-info {
+  background-color: rgba(46, 204, 113, 0.1) !important;
+  border: 1px solid #2ecc71 !important;
+  color: #ffffff !important;
+}
+
+.alert-info h5, .alert-info i {
+  color: #2ecc71 !important;
+}
+
+.alert-secondary {
+  background-color: #21262d !important;
+  border: 1px solid #30363d !important;
+  color: #c9d1d9 !important;
+}
+
+/* ==========================================================================
+   6. BADGES & DETALLES
+   ========================================================================== */
+.badge.bg-secondary {
+  background-color: #30363d !important;
+  color: #c9d1d9 !important;
+  border: 1px solid #484f58;
+}
+
+.type-badge {
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+
+/*  ======================== 
+    para el efecto seleccionado 
+    =========================
+*/
+.shadow-glow {
+  box-shadow: 0 0 20px rgba(46, 204, 113, 0.4) !important;
+  border-color: #2ecc71 !important;
+  transform: scale(1.03);
+  transition: all 0.3s ease;
+}
+
+/* Opcional: una pequeña etiqueta de "Analizando..." */
+.badge-analyzing {
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  background-color: #2ecc71;
+  color: #121417;
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+
+/* Spinner personalizado estilo laboratorio */
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+  border-width: 0.2em;
+  filter: drop-shadow(0 0 5px #2ecc71);
+  color: #2ecc71 !important; /* Verde Mew */
+}
+
+/* Animación de pulso para la alerta de carga */
+.analysis-section .alert-info {
+  animation: pulse-mew 2s infinite;
+}
+
+@keyframes pulse-mew {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}

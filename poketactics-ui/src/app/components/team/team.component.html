@@ -1,0 +1,68 @@
+<div class="container-fluid py-3">
+  <h4 class="text-primary mb-4 border-bottom pb-2">
+    <i class="bi bi-shield-fill-check"></i> Tu Equipo de Combate
+  </h4>
+
+  <div class="row g-3">
+    <div class="col-12 col-sm-6 col-lg-4" *ngFor="let slot of team; let i = index">
+      
+      <div class="card h-100 shadow-sm border-2 position-relative" 
+           [ngClass]="{
+             'shadow-glow border-success': slot && slot.name === pokemonActivo,
+             'border-primary': slot && slot.name !== pokemonActivo,
+             'border-dashed': !slot
+           }">
+        
+        <span class="badge-analyzing" *ngIf="slot && slot.name === pokemonActivo">
+          <i class="bi bi-broadcast"></i> ANALIZANDO
+        </span>
+
+        <div class="card-body d-flex flex-column align-items-center justify-content-center py-4" *ngIf="!slot">
+          <div class="text-muted mb-3 text-center">
+            <i class="bi bi-plus-circle-dotted fs-1"></i>
+            <p class="small mb-0">Hueco {{ i + 1 }} disponible</p>
+          </div>
+          <div class="input-group input-group-sm px-3">
+            <input type="text" class="form-control" placeholder="Nombre..." 
+                   [(ngModel)]="searchNames[i]" (keyup.enter)="addPokemonToTeam(i)">
+            <button class="btn btn-primary" (click)="addPokemonToTeam(i)">
+              <i class="bi bi-search"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="card-body p-2" *ngIf="slot">
+          <div class="d-flex justify-content-between align-items-start">
+            <img [src]="slot.imageUrl" width="80" [alt]="slot.name" class="img-fluid">
+            <button class="btn btn-outline-danger btn-sm border-0" (click)="removePokemon(i)">
+              <i class="bi bi-trash"></i>
+            </button>
+          </div>
+          
+          <div class="ps-2">
+            <h5 class="text-capitalize mb-1">{{ slot.name }}</h5>
+            <div class="mb-2">
+              <span class="badge type-badge me-1" [ngClass]="'type-' + slot.type1">{{ slot.type1 }}</span>
+              <span class="badge type-badge" *ngIf="slot.type2" [ngClass]="'type-' + slot.type2">{{ slot.type2 }}</span>
+            </div>
+
+            <label class="small text-muted fw-bold">Ataque principal:</label>
+            <select class="form-select form-select-sm mt-1">
+              <option *ngFor="let move of slot.moves">{{ move.name }}</option>
+            </select>
+
+            <div class="d-grid gap-2 mt-3">
+              <button class="btn btn-sm" 
+                      [ngClass]="slot.name === pokemonActivo ? 'btn-success' : 'btn-primary'"
+                      (click)="solicitarAnalisis(slot)">
+                <i class="bi bi-cpu"></i> 
+                {{ slot.name === pokemonActivo ? 'Re-analizar' : 'Analizar vs Rival' }}
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
